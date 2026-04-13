@@ -1,0 +1,18 @@
+{
+    "Clean accuracy": {
+        "Standard": 92.94,
+        "Robust": 87.36
+    },
+    "FGSM accuracy (eps=8/255)": {
+        "Standard": 15.88,
+        "Robust": 52.72
+    },
+    "PGD-5 accuracy (eps=8/255)": {
+        "Standard": 0.1,
+        "Robust": 45.94
+    },
+    "PGD-10 accuracy (eps=8/255)": {
+        "Standard": 0.02,
+        "Robust": 42.58
+    }
+}

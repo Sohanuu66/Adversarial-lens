@@ -1,0 +1,39 @@
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Python Caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Project outputs to ignore (temporaries)
+# We track outputs/checkpoints/, outputs/results/, outputs/assets/, and outputs/samples/
+outputs/evaluation/*.csv
+outputs/evaluation/*.png
+
+# Keep empty output directories
+!outputs/
+!outputs/checkpoints/
+!outputs/evaluation/
+!outputs/results/
+!outputs/assets/
+!outputs/samples/
+
+# Documentation
+# (Uncomment these if you want to track PRD and analysis)
+# PRD.md
+# analysis_results.md
+
+# Large Datasets
+assets/data/

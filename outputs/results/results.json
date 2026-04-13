@@ -1,0 +1,47 @@
+{
+    "clean_acc_standard": 92.94,
+    "clean_acc_robust": 87.36,
+    "fgsm_acc_standard": 15.88,
+    "fgsm_acc_robust": 52.72,
+    "pgd10_acc_standard": 0.02,
+    "pgd10_acc_robust": 42.58,
+    "weak_classes_standard": [
+        "airplane",
+        "automobile",
+        "bird"
+    ],
+    "weak_classes_robust": [
+        "cat",
+        "bird",
+        "horse"
+    ],
+    "strong_classes_robust": [
+        "ship",
+        "automobile",
+        "dog"
+    ],
+    "per_class_standard_pgd10": {
+        "airplane": 0.0,
+        "automobile": 0.0,
+        "bird": 0.0,
+        "cat": 0.0,
+        "deer": 0.0,
+        "dog": 0.0,
+        "frog": 0.0,
+        "horse": 0.0,
+        "ship": 0.0,
+        "truck": 0.0
+    },
+    "per_class_robust_pgd10": {
+        "airplane": 87.5,
+        "automobile": 100.0,
+        "bird": 70.0,
+        "cat": 62.5,
+        "deer": 87.5,
+        "dog": 93.33333333333333,
+        "frog": 90.0,
+        "horse": 84.61538461538461,
+        "ship": 100.0,
+        "truck": 86.66666666666667
+    }
+}

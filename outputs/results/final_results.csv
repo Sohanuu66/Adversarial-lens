@@ -1,0 +1,5 @@
+Scenario,Standard,Robust
+Clean accuracy,92.94,87.36
+FGSM accuracy (eps=8/255),15.88,52.72
+PGD-5 accuracy (eps=8/255),0.1,45.94
+PGD-10 accuracy (eps=8/255),0.02,42.58

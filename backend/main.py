@@ -1,5 +1,6 @@
 import logging
 from contextlib import asynccontextmanager
+import traceback
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.exceptions import RequestValidationError

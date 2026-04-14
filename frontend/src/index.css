@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@config "../tailwind.config.ts";
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #020817;
+    --card: #ffffff;
+    --card-foreground: #020817;
+    --popover: #ffffff;
+    --popover-foreground: #020817;
+    --primary: #0f172a;
+    --primary-foreground: #f8fafc;
+    --secondary: #f1f5f9;
+    --secondary-foreground: #0f172a;
+    --tertiary: #4edea3;
+    --tertiary-foreground: #0f172a;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    --accent: #f1f5f9;
+    --accent-foreground: #0f172a;
+    --destructive: #ff0000;
+    --destructive-foreground: #f8fafc;
+    --border: #e2e8f0;
+    --input: #e2e8f0;
+    --ring: #020817;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: #0c1324;
+    --foreground: #dce1fb;
+    --card: #191f31;
+    --card-foreground: #dce1fb;
+    --popover: #191f31;
+    --popover-foreground: #dce1fb;
+    --primary: #7bd0ff;
+    --primary-foreground: #020817;
+    --secondary: #ffb3ad;
+    --secondary-foreground: #0c1324;
+    --tertiary: #4edea3;
+    --tertiary-foreground: #0c1324;
+    --muted: #23293c;
+    --muted-foreground: #94a3b8;
+    --accent: #23293c;
+    --accent-foreground: #dce1fb;
+    --destructive: #ffb3ad; /* secondary used for destructive */
+    --destructive-foreground: #020817;
+    --border: #23293c;
+    --input: #23293c;
+    --ring: #7bd0ff;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}

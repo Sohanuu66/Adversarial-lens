@@ -32,7 +32,8 @@ outputs/evaluation/*.png
 
 # Documentation
 # (Uncomment these if you want to track PRD and analysis)
-# PRD.md
+PRD.md
+implementation_plan.md
 # analysis_results.md
 
 # Large Datasets
@@ -46,3 +47,6 @@ frontend/dist-ssr/
 frontend/.eslintcache
 frontend/*.local
 frontend/.swc/
+
+.agents/
+skills-lock.json

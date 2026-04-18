@@ -21,9 +21,19 @@ def get_per_class_results():
     if not PER_CLASS_RESULTS_PATH.exists():
         raise HTTPException(status_code=404, detail="Per-class results CSV not found. Run Notebook 4 first.")
     
-    with open(PER_CLASS_RESULTS_PATH, 'r') as f:
+    with open(PER_CLASS_RESULTS_PATH, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
-        return list(reader)
+        rows = list(reader)
+    # Normalize the delta column key — find whichever key contains 'Robust' and 'Standard' 
+    # and rename it to a safe ASCII key so the frontend doesn't need to match Unicode exactly
+    result = []
+    for row in rows:
+        new_row = dict(row)
+        for key in list(new_row.keys()):
+            if 'Robust' in key and 'Standard' in key and key != 'Robust':
+                new_row['delta'] = new_row.pop(key)
+        result.append(new_row)
+    return result
 
 @router.get("/samples", response_model=SamplesResponse)
 def get_samples():

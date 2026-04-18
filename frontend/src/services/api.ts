@@ -3,6 +3,12 @@ export interface HealthResponse {
   models_loaded?: boolean;
 }
 
+export interface AttackConfig {
+  attack_type: "fgsm" | "pgd";
+  epsilon: number;
+  pgd_steps?: number;
+}
+
 export interface CompareRequest {
   image_b64: string;
   attack_type: "fgsm" | "pgd";
@@ -23,7 +29,9 @@ export interface CompareResponse {
   robust_model: CompareModelResult;
   attack_type: string;
   epsilon: number;
-  original_image_b64?: string; // We'll pass this from frontend state
+  adversarial_image_b64: string;
+  perturbation_b64: string;
+  original_image_b64?: string; // Manually added on frontend
 }
 
 export interface ExplainResponse {
@@ -43,6 +51,16 @@ export interface SampleImage {
 
 export interface SamplesResponse {
   samples: SampleImage[];
+}
+
+// { "Clean accuracy": { "Standard": 92.94, "Robust": 87.36 }, ... }
+export type ModelResults = Record<string, { Standard: number; Robust: number }>;
+
+export interface PerClassResult {
+  Class: string;
+  Standard: string;
+  Robust: string;
+  delta: string; // normalized from "Δ (Robust − Standard)" by backend
 }
 
 const API_BASE = "/api";
@@ -80,6 +98,18 @@ export const api = {
       body: JSON.stringify(req),
     });
     if (!res.ok) throw new Error("Explain generation failed");
+    return res.json();
+  },
+
+  async getModelResults(): Promise<ModelResults> {
+    const res = await fetch(`${API_BASE}/results`);
+    if (!res.ok) throw new Error("Failed to fetch model results");
+    return res.json();
+  },
+
+  async getPerClassResults(): Promise<PerClassResult[]> {
+    const res = await fetch(`${API_BASE}/per_class_results`);
+    if (!res.ok) throw new Error("Failed to fetch per-class results");
     return res.json();
   },
 };

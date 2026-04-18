@@ -31,7 +31,7 @@ def encode_image(img_tensor: torch.Tensor) -> str:
     if img_tensor.dim() == 4:
         img_tensor = img_tensor.squeeze(0)
     
-    img_nd = (img_tensor.permute(1, 2, 0).numpy() * 255).astype('uint8')
+    img_nd = (img_tensor.clamp(0, 1).permute(1, 2, 0).numpy() * 255).astype('uint8')
     img_pil = Image.fromarray(img_nd)
     
     buffer = BytesIO()

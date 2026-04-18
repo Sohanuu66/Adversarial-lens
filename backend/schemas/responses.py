@@ -24,6 +24,8 @@ class CompareResponse(BaseModel):
     robust_model: CompareModelResult
     attack_type: str
     epsilon: float
+    adversarial_image_b64: str
+    perturbation_b64: str
 
 class ExplainResponse(BaseModel):
     gradcam_standard_clean_b64: str

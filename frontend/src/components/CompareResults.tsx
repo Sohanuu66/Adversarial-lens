@@ -32,7 +32,7 @@ export function CompareResults({ result, isLoading }: { result: CompareResponse 
     // Radial chart color based on success/failure
     const barColor = isSurvived 
       ? "hsl(145, 60%, 50%)"   // Emerald
-      : "hsl(5, 100%, 84%)";    // Softer Salmon/Red (Matches theme destructive)
+      : "hsl(0, 100%, 50%)";    // Pure red for breached state
       
     const chartData = [{ value: confidencePct, fill: barColor }];
 

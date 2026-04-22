@@ -51,18 +51,37 @@ graph LR
 
 ## Local Setup
 
-### Backend
-Navigate to the `backend/` directory, install requirements, and run the FastAPI server:
+### 1. Repository Setup & Dependencies
+First, clone the repository and install the Python dependencies from the root directory. It is highly recommended to use a virtual environment.
 ```bash
-cd backend
+# Clone the repository
+git clone <your-repo-url>  # replace with the actual repository URL
+cd Adversarial_lens
+
+# Set up a virtual environment (optional but recommended)
+python -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+
+# Install core dependencies
 pip install -r requirements.txt
-uvicorn main:app --reload
 ```
 
-### Frontend
-Navigate to the `frontend/` directory, install dependencies, and run the dev server:
+> [!NOTE] 
+> **Missing Datasets:** To keep the repository lightweight, raw datasets (like CIFAR-10) in `assets/data/` are intentionally ignored by Git. The pre-trained `.pth` model checkpoints (in `outputs/checkpoints/`) and sample UI images are already included, so you can run the app immediately. 
+> However, if you plan to re-train the models or run the evaluation notebooks yourself, you must execute the Jupyter Notebooks (1 through 4) sequentially to download the datasets and re-populate the directories.
+
+### 2. Running the Backend
+Because Python modules are structured relative to the project root (e.g., `from backend.api...`), you must start the server from the **root** project directory, *not* inside the `backend/` folder:
+```bash
+uvicorn backend.main:app --reload
+```
+The FastAPI wrapper will start at `http://127.0.0.1:8000`.
+
+### 3. Running the Frontend
+The visual interface is built with React and Vite. Open a new terminal, navigate to the `frontend/` folder, install the Node modules, and start the development server:
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
+The React development server will start and typically be accessible at `http://localhost:5173`.

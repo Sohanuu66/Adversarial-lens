@@ -18,17 +18,12 @@ __pycache__/
 Thumbs.db
 
 # Project outputs to ignore (temporaries)
-# We track outputs/checkpoints/, outputs/results/, outputs/assets/, and outputs/samples/
+# We track outputs/checkpoints/ and results via their contents.
 outputs/evaluation/*.csv
 outputs/evaluation/*.png
 
-# Keep empty output directories
-!outputs/
-!outputs/checkpoints/
-!outputs/evaluation/
-!outputs/results/
-!outputs/assets/
-!outputs/samples/
+# Allow .gitkeep files to ensure empty tracked directories are pushed
+!.gitkeep
 
 # Documentation
 # (Uncomment these if you want to track PRD and analysis)

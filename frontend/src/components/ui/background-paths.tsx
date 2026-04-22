@@ -50,9 +50,9 @@ function FloatingPaths({ position }: { position: number }) {
     );
 }
 
-export function BackgroundPaths({ title = "Background Paths", subtitle }: { title?: string, subtitle?: string }) {
-    const handleScroll = () => {
-        document.getElementById('upload-section')?.scrollIntoView({ behavior: 'smooth' });
+export function BackgroundPaths({ title = "Background Paths", subtitle, onBegin }: { title?: string, subtitle?: string, onBegin?: () => void }) {
+    const handleClick = () => {
+        onBegin?.();
     }
 
     return (
@@ -110,14 +110,13 @@ export function BackgroundPaths({ title = "Background Paths", subtitle }: { titl
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1, duration: 0.8 }}
                     >
-                         <div className="h-20 w-px bg-gradient-to-b from-primary/50 to-transparent mx-auto mb-8" />
                          <Button 
-                            onClick={handleScroll}
+                            onClick={handleClick}
                             size="lg" 
                             className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-6 rounded-full text-lg shadow-xl shadow-primary/20 backdrop-blur-sm border border-primary/20 transition-all hover:scale-105"
                          >
                             Begin Analysis
-                            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+                            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                          </Button>
                     </motion.div>
                 </motion.div>

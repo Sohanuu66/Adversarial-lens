@@ -2,8 +2,8 @@ import os
 import json
 import csv
 from fastapi import APIRouter, HTTPException
-from backend.config import COMPARISON_RESULTS_PATH, PER_CLASS_RESULTS_PATH, SAMPLE_IMAGES_DIR
-from backend.schemas.responses import SamplesResponse, SampleImage
+from config import COMPARISON_RESULTS_PATH, PER_CLASS_RESULTS_PATH, SAMPLE_IMAGES_DIR
+from schemas.responses import SamplesResponse, SampleImage
 import base64
 
 router = APIRouter()

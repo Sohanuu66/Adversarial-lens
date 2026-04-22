@@ -3,13 +3,13 @@ import torch
 import torch.nn.functional as F
 import logging
 
-from backend.schemas.requests import AttackRequest
-from backend.schemas.responses import AttackResponse
-from backend.models.resnet import get_model
-from backend.attacks.fgsm import generate_fgsm
-from backend.attacks.pgd import generate_pgd
-from backend.utils.image_utils import decode_image, preprocess_image, encode_image, unnormalize
-from backend.config import CIFAR10_CLASSES
+from schemas.requests import AttackRequest
+from schemas.responses import AttackResponse
+from models.resnet import get_model
+from attacks.fgsm import generate_fgsm
+from attacks.pgd import generate_pgd
+from utils.image_utils import decode_image, preprocess_image, encode_image, unnormalize
+from config import CIFAR10_CLASSES
 
 router = APIRouter()
 logger = logging.getLogger("backend.attack")

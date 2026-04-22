@@ -7,9 +7,9 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from backend.api.routes import attack, compare, explain, results
-from backend.models.resnet import initialize_models
-from backend.config import STANDARD_MODEL_PATH, ROBUST_MODEL_PATH
+from api.routes import attack, compare, explain, results
+from models.resnet import initialize_models
+from config import STANDARD_MODEL_PATH, ROBUST_MODEL_PATH
 
 # Minimal standard logging
 logging.basicConfig(
@@ -79,7 +79,7 @@ app.include_router(results.router, prefix="/api", tags=["Results & Assets"])
 
 @app.get("/api/health", tags=["System"])
 def health_check():
-    from backend.models.resnet import models
+    from models.resnet import models
     loaded = models["standard"] is not None and models["robust"] is not None
     return {"status": "ok", "models_loaded": loaded}
 

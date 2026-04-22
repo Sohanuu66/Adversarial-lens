@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 import torchvision.datasets as datasets
-from backend.config import SAMPLE_IMAGES_DIR, CIFAR10_CLASSES
+from config import SAMPLE_IMAGES_DIR, CIFAR10_CLASSES
 
 def main():
     print("Exporting CIFAR-10 sample images...")

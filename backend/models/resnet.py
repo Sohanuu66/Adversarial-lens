@@ -2,7 +2,7 @@ import logging
 import torch
 import torch.nn as nn
 from torchvision.models import resnet18
-from backend.config import STANDARD_MODEL_PATH, ROBUST_MODEL_PATH
+from config import STANDARD_MODEL_PATH, ROBUST_MODEL_PATH
 
 logger = logging.getLogger("backend.models")
 

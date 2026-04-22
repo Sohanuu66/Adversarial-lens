@@ -5,7 +5,7 @@ from PIL import Image
 
 from pytorch_grad_cam import GradCAM
 from pytorch_grad_cam.utils.image import show_cam_on_image
-from backend.config import CIFAR10_MEAN, CIFAR10_STD
+from config import CIFAR10_MEAN, CIFAR10_STD
 
 def generate_caption(is_correct: bool, is_adversarial: bool, model_type: str) -> str:
     """

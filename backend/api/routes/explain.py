@@ -2,14 +2,14 @@ from fastapi import APIRouter
 import torch
 import logging
 
-from backend.schemas.requests import ExplainRequest
-from backend.schemas.responses import ExplainResponse
-from backend.models.resnet import get_model
-from backend.attacks.fgsm import generate_fgsm
-from backend.attacks.pgd import generate_pgd
-from backend.utils.image_utils import decode_image, preprocess_image, unnormalize
-from backend.config import CIFAR10_CLASSES, CIFAR10_MEAN, CIFAR10_STD
-from backend.explainability.gradcam import generate_gradcam_heatmap, generate_caption
+from schemas.requests import ExplainRequest
+from schemas.responses import ExplainResponse
+from models.resnet import get_model
+from attacks.fgsm import generate_fgsm
+from attacks.pgd import generate_pgd
+from utils.image_utils import decode_image, preprocess_image, unnormalize
+from config import CIFAR10_CLASSES, CIFAR10_MEAN, CIFAR10_STD
+from explainability.gradcam import generate_gradcam_heatmap, generate_caption
 from torchvision import transforms
 
 router = APIRouter()

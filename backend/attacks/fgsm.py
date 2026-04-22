@@ -1,6 +1,6 @@
 import torch
 from torchvision import transforms
-from backend.config import CIFAR10_MEAN, CIFAR10_STD
+from config import CIFAR10_MEAN, CIFAR10_STD
 
 def generate_fgsm(model: torch.nn.Module, images_norm: torch.Tensor, labels: torch.Tensor, epsilon: float) -> torch.Tensor:
     """

@@ -3,7 +3,7 @@ from io import BytesIO
 import torch
 from PIL import Image
 from torchvision import transforms
-from backend.config import CIFAR10_MEAN, CIFAR10_STD
+from config import CIFAR10_MEAN, CIFAR10_STD
 
 def decode_image(image_b64: str) -> Image.Image:
     """
